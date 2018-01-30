@@ -12,8 +12,10 @@
 		E58B9BCE202052C800821EDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58B9BCC202052C800821EDA /* Main.storyboard */; };
 		E58B9BD0202052C800821EDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E58B9BCF202052C800821EDA /* Assets.xcassets */; };
 		E58B9BD3202052C800821EDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58B9BD1202052C800821EDA /* LaunchScreen.storyboard */; };
-		E58B9BDE202052C800821EDA /* DemineurTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58B9BDD202052C800821EDA /* DemineurTests.swift */; };
-		E58B9BE9202052C800821EDA /* DemineurUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58B9BE8202052C800821EDA /* DemineurUITests.swift */; };
+		E58B9BF72020555C00821EDA /* demineur.png in Resources */ = {isa = PBXBuildFile; fileRef = E58B9BF62020555C00821EDA /* demineur.png */; };
+		E58B9BFC2020694500821EDA /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58B9BFB2020694500821EDA /* Case.swift */; };
+		E58B9BFE2020766900821EDA /* Jeu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58B9BFD2020766900821EDA /* Jeu.swift */; };
+		E58B9C002020853700821EDA /* jeuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58B9BFF2020853700821EDA /* jeuController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +44,11 @@
 		E58B9BD2202052C800821EDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E58B9BD4202052C800821EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E58B9BD9202052C800821EDA /* DemineurTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemineurTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E58B9BDD202052C800821EDA /* DemineurTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemineurTests.swift; sourceTree = "<group>"; };
-		E58B9BDF202052C800821EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E58B9BE4202052C800821EDA /* DemineurUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemineurUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E58B9BE8202052C800821EDA /* DemineurUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemineurUITests.swift; sourceTree = "<group>"; };
-		E58B9BEA202052C800821EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E58B9BF62020555C00821EDA /* demineur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demineur.png; sourceTree = SOURCE_ROOT; };
+		E58B9BFB2020694500821EDA /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
+		E58B9BFD2020766900821EDA /* Jeu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jeu.swift; sourceTree = "<group>"; };
+		E58B9BFF2020853700821EDA /* jeuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jeuController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				E58B9BC7202052C800821EDA /* Demineur */,
-				E58B9BDC202052C800821EDA /* DemineurTests */,
-				E58B9BE7202052C800821EDA /* DemineurUITests */,
 				E58B9BC6202052C800821EDA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,32 +97,42 @@
 		E58B9BC7202052C800821EDA /* Demineur */ = {
 			isa = PBXGroup;
 			children = (
+				E58B9BF8202068B600821EDA /* Model */,
+				E58B9BFA202068DF00821EDA /* View */,
+				E58B9BF9202068C700821EDA /* Controller */,
 				E58B9BC8202052C800821EDA /* AppDelegate.swift */,
 				E58B9BCA202052C800821EDA /* ViewController.swift */,
-				E58B9BCC202052C800821EDA /* Main.storyboard */,
 				E58B9BCF202052C800821EDA /* Assets.xcassets */,
 				E58B9BD1202052C800821EDA /* LaunchScreen.storyboard */,
+				E58B9BF62020555C00821EDA /* demineur.png */,
 				E58B9BD4202052C800821EDA /* Info.plist */,
 			);
 			path = Demineur;
 			sourceTree = "<group>";
 		};
-		E58B9BDC202052C800821EDA /* DemineurTests */ = {
+		E58B9BF8202068B600821EDA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E58B9BDD202052C800821EDA /* DemineurTests.swift */,
-				E58B9BDF202052C800821EDA /* Info.plist */,
+				E58B9BFB2020694500821EDA /* Case.swift */,
+				E58B9BFD2020766900821EDA /* Jeu.swift */,
 			);
-			path = DemineurTests;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		E58B9BE7202052C800821EDA /* DemineurUITests */ = {
+		E58B9BF9202068C700821EDA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E58B9BE8202052C800821EDA /* DemineurUITests.swift */,
-				E58B9BEA202052C800821EDA /* Info.plist */,
+				E58B9BFF2020853700821EDA /* jeuController.swift */,
 			);
-			path = DemineurUITests;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E58B9BFA202068DF00821EDA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E58B9BCC202052C800821EDA /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E58B9BF72020555C00821EDA /* demineur.png in Resources */,
 				E58B9BD3202052C800821EDA /* LaunchScreen.storyboard in Resources */,
 				E58B9BD0202052C800821EDA /* Assets.xcassets in Resources */,
 				E58B9BCE202052C800821EDA /* Main.storyboard in Resources */,
@@ -259,7 +270,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E58B9BFE2020766900821EDA /* Jeu.swift in Sources */,
 				E58B9BCB202052C800821EDA /* ViewController.swift in Sources */,
+				E58B9C002020853700821EDA /* jeuController.swift in Sources */,
+				E58B9BFC2020694500821EDA /* Case.swift in Sources */,
 				E58B9BC9202052C800821EDA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +282,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E58B9BDE202052C800821EDA /* DemineurTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +289,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E58B9BE9202052C800821EDA /* DemineurUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
