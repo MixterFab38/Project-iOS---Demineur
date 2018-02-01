@@ -15,7 +15,6 @@
 		E58B9BF72020555C00821EDA /* demineur.png in Resources */ = {isa = PBXBuildFile; fileRef = E58B9BF62020555C00821EDA /* demineur.png */; };
 		E58B9BFC2020694500821EDA /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58B9BFB2020694500821EDA /* Case.swift */; };
 		E58B9BFE2020766900821EDA /* Jeu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58B9BFD2020766900821EDA /* Jeu.swift */; };
-		E58B9C002020853700821EDA /* jeuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58B9BFF2020853700821EDA /* jeuController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +47,6 @@
 		E58B9BF62020555C00821EDA /* demineur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demineur.png; sourceTree = SOURCE_ROOT; };
 		E58B9BFB2020694500821EDA /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
 		E58B9BFD2020766900821EDA /* Jeu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jeu.swift; sourceTree = "<group>"; };
-		E58B9BFF2020853700821EDA /* jeuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jeuController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +99,6 @@
 				E58B9BFA202068DF00821EDA /* View */,
 				E58B9BF9202068C700821EDA /* Controller */,
 				E58B9BC8202052C800821EDA /* AppDelegate.swift */,
-				E58B9BCA202052C800821EDA /* ViewController.swift */,
 				E58B9BCF202052C800821EDA /* Assets.xcassets */,
 				E58B9BD1202052C800821EDA /* LaunchScreen.storyboard */,
 				E58B9BF62020555C00821EDA /* demineur.png */,
@@ -122,7 +119,6 @@
 		E58B9BF9202068C700821EDA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E58B9BFF2020853700821EDA /* jeuController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -131,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				E58B9BCC202052C800821EDA /* Main.storyboard */,
+				E58B9BCA202052C800821EDA /* ViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -272,7 +269,6 @@
 			files = (
 				E58B9BFE2020766900821EDA /* Jeu.swift in Sources */,
 				E58B9BCB202052C800821EDA /* ViewController.swift in Sources */,
-				E58B9C002020853700821EDA /* jeuController.swift in Sources */,
 				E58B9BFC2020694500821EDA /* Case.swift in Sources */,
 				E58B9BC9202052C800821EDA /* AppDelegate.swift in Sources */,
 			);

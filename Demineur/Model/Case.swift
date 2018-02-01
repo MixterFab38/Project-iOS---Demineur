@@ -9,7 +9,8 @@
 import Foundation
 
 class Case {
-    var type: Bool
+    
+    /*var type: Bool
     var numero: Int = 0
     
     init( numero: Int, type: Bool)
@@ -28,6 +29,6 @@ class Case {
     func AttribueType(unType: Bool)
    {
     self.type = unType
-   }
+   }*/
     
 }
