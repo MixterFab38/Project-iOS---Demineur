@@ -10,13 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    //var game = Jeu();
+    /*var game = Jeu();*/
+    
+    private var chrono = Timer()
+    private var time = 0 //secondes
     
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var nbtouchesLabel: UILabel!
     @IBOutlet weak var nbRest: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     
+    @IBOutlet weak var resultLabel: UILabel! //Gagné ou perdu
     
     @IBOutlet weak var newGameButton: UIButton!
     
@@ -37,26 +41,29 @@ class ViewController: UIViewController {
         button1.backgroundColor = UIColor.blue
     }
     @IBAction func didPressButton2() {
-        PressButton2()
+        //PressButton2()
+        button2.backgroundColor = UIColor.green
     }
     @IBAction func didPressButton3() {
-        PressButton3()
+        button3.backgroundColor = UIColor.yellow
+        //PressButton3()
     }
     @IBAction func didPressButton4() {
-        PressButton4()
+        button4.backgroundColor = UIColor.red
+        //PressButton4()
     }
     
     private func PressButton1() {
         
     }
     private func PressButton2() {
-        button2.backgroundColor = UIColor.green
+        
     }
     private func PressButton3() {
-        button3.backgroundColor = UIColor.yellow
+        
     }
     private func PressButton4() {
-        button4.backgroundColor = UIColor.red
+        
     }
 
     override func viewDidLoad() {
@@ -65,6 +72,7 @@ class ViewController: UIViewController {
         
         startNewGame() //On lance une partie tout de suite
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -81,8 +89,34 @@ class ViewController: UIViewController {
         nbtouchesLabel.text = "Cases touchées : 0"
         nbRest.text = "Coups restants : "
         timerLabel.text = "Temps : 0"+"\""
+        resultLabel.text = ""
         
-        game.refresh()
+        startTimer()
+        
+        //game.refresh()
+    }
+    
+    private func startTimer(){
+        chrono = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateChrono), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateChrono(){
+        time += 1
+        timerLabel.text = "Temps : \(time)\""
+    }
+    
+    func endGame(){
+        chrono.invalidate()
+        /*switch gameView.playTable!.result {
+        case .Loose:
+            performSegue(withIdentifier: "popUpSegue", sender: nil)
+        case .Win:
+            performSegue(withIdentifier: "popUpSegue", sender: nil)
+        case .notEnded:
+            chrono = 0
+            startTimer()
+        }*/
+        
     }
 
 
