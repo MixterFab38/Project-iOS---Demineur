@@ -10,6 +10,10 @@ import Foundation
 
 class Case {
     
+    struct Case {
+        var isBonus: Bool = false
+    }
+    
     /*var type: Bool
     var numero: Int = 0
     
