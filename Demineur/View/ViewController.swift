@@ -39,18 +39,22 @@ class ViewController: UIViewController {
     @IBAction func didPressButton1() {
         //PressButton1()
         button1.backgroundColor = UIColor.blue
+        CountButtonPressed()
     }
     @IBAction func didPressButton2() {
         //PressButton2()
         button2.backgroundColor = UIColor.green
+        CountButtonPressed()
     }
     @IBAction func didPressButton3() {
-        button3.backgroundColor = UIColor.yellow
         //PressButton3()
+        button3.backgroundColor = UIColor.yellow
+        CountButtonPressed()
     }
     @IBAction func didPressButton4() {
-        button4.backgroundColor = UIColor.red
         //PressButton4()
+        button4.backgroundColor = UIColor.red
+        CountButtonPressed()
     }
     
     private func PressButton1() {
@@ -65,6 +69,13 @@ class ViewController: UIViewController {
     private func PressButton4() {
         
     }
+    
+    private func CountButtonPressed() {
+        
+    }
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +108,8 @@ class ViewController: UIViewController {
     }
     
     private func startTimer(){
+        chrono.invalidate()
+        time = 0
         chrono = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateChrono), userInfo: nil, repeats: true)
     }
     
@@ -110,8 +123,10 @@ class ViewController: UIViewController {
         /*switch gameView.playTable!.result {
         case .Loose:
             performSegue(withIdentifier: "popUpSegue", sender: nil)
+         //resultLabel.text = "Vous avez perdu ! Temps : \(time) secondes"
         case .Win:
             performSegue(withIdentifier: "popUpSegue", sender: nil)
+            //resultLabel.text = "Vous avez gagné ! Temps : \(time) secondes"
         case .notEnded:
             chrono = 0
             startTimer()
