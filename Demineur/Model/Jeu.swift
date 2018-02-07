@@ -1,5 +1,5 @@
 //
-//  Malus.swift
+//  Jeu.swift
 //  Demineur
 //
 //  Created by Fabien Rodet on 30/01/2018.
@@ -7,10 +7,25 @@
 //
 
 import Foundation
+
 class Jeu {
     var score = 0
-    private var nbCoup: Int
+    var nbCasesTouchees = 0
+    var nbCoup: Int
     private var nbCases: Int
+    
+    init()
+     {
+     self.nbCoup = 2;
+     self.score = 0;
+     self.nbCases = 4;
+     }
+    
+    /*struct Case {
+        var isBonus: Bool = false
+    }*/
+    
+    var isBonus: Bool = false
     
     var state: State = .ongoing
     
@@ -18,11 +33,30 @@ class Jeu {
         case ongoing, over
     }
     
+    /*init( nbCoup: Int, nbCase: Int)
+    {
+        self.nbCoup = nbCoup;
+        self.score = 0;
+        self.nbCases = nbCase;
+    }*/
+    
     func refresh() {
         score = 0
         nbCoup = 2
         nbCases = 4
+        nbCasesTouchees = 0
         state = .over
+    }
+    
+    func updateScore(with isBonus:Bool) {
+        score+=1
+        nbCoup-=1
+        nbCasesTouchees+=1
+        /*if isBonus==true {
+            score+=1
+        } else {
+            score-=2 //Malus
+        }*/
     }
     
     //Utile pour plus tard :
@@ -34,26 +68,27 @@ class Jeu {
         goToNextQuestion()
     }*/
     
-    private func goToNextCase() { //Nom classe a changer
-        if nbCases < nbCoup {
+    func goToNextCase(/*with isBonus:Bool*/) { //Nom classe a changer
+        if nbCoup < 1 {
+            updateScore(with: isBonus)
             finishGame()
+        } else {
+            updateScore(with: isBonus)
         }
     }
     
-    private func finishGame() {
-        state = .over
+    func getIsBonus()->Bool {
+        return isBonus;
     }
     
-    init( nbCoup: Int, nbCase: Int)
-    {
-        self.nbCoup = nbCoup;
-        self.score = 0;
-        self.nbCases = 4;
+    private func finishGame() {
+        
+        //state = .over
     }
-    func getTScore() -> Int
+    /*func getTScore() -> Int
     {
         return score;
-    }
+    }*/
     /*func getNbCoup() -> Int
     {
         return nbCoup;

@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    /*var game = Jeu();*/
+    var jeu = Jeu()
+    //var jeu = Jeu(nbCoup: 2 ,  nbCase: 4)
     
     private var chrono = Timer()
     private var time = 0 //secondes
@@ -20,7 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var nbRest: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     
-    @IBOutlet weak var resultLabel: UILabel! //Gagné ou perdu
+    @IBOutlet weak var resultLabel: UILabel! // Indiquera si la partie est Gagné ou Perdu
     
     @IBOutlet weak var newGameButton: UIButton!
     
@@ -31,33 +32,48 @@ class ViewController: UIViewController {
     
     @IBOutlet var buttons: [UIButton]!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        startNewGame() //On lance une partie tout de suite
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
     @IBAction func didtrapNewGameButton() {
-        startNewGame()
+        startNewGame() // A chaque pression sur le bouton "Nouvelle partie"
     }
     
     
     @IBAction func didPressButton1() {
         //PressButton1()
         button1.backgroundColor = UIColor.blue
-        CountButtonPressed()
+        //self.
+        ButtonPressed()
     }
     @IBAction func didPressButton2() {
         //PressButton2()
         button2.backgroundColor = UIColor.green
-        CountButtonPressed()
+        ButtonPressed()
     }
     @IBAction func didPressButton3() {
         //PressButton3()
         button3.backgroundColor = UIColor.yellow
-        CountButtonPressed()
+        ButtonPressed()
     }
     @IBAction func didPressButton4() {
         //PressButton4()
         button4.backgroundColor = UIColor.red
-        CountButtonPressed()
+        ButtonPressed()
     }
     
-    private func PressButton1() {
+    /*private func PressButton1() {
         
     }
     private func PressButton2() {
@@ -68,27 +84,15 @@ class ViewController: UIViewController {
     }
     private func PressButton4() {
         
+    }*/
+    
+    private func ButtonPressed() {
+        jeu.goToNextCase()
+        scoreLabel.text = "Score : \(jeu.score)"
+        nbtouchesLabel.text = "Cases touchées : \(jeu.nbCasesTouchees)"
+        nbRest.text = "Coups restants : \(jeu.nbCoup)"
     }
     
-    private func CountButtonPressed() {
-        
-    }
-    
-    
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        startNewGame() //On lance une partie tout de suite
-    }
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     private func startNewGame() {
         button1.backgroundColor = UIColor.gray
@@ -102,9 +106,9 @@ class ViewController: UIViewController {
         timerLabel.text = "Temps : 0"+"\""
         resultLabel.text = ""
         
-        startTimer()
+        jeu.refresh()
         
-        //game.refresh()
+        startTimer()
     }
     
     private func startTimer(){
@@ -118,12 +122,20 @@ class ViewController: UIViewController {
         timerLabel.text = "Temps : \(time)\""
     }
     
-    func endGame(){
+    /*func endGame(){
         chrono.invalidate()
+        switch Jeu.State.self {
+            case .ongoing:
+                <#code#>
+            default:
+                <#code#>
+            }*/
+        
+        
         /*switch gameView.playTable!.result {
         case .Loose:
             performSegue(withIdentifier: "popUpSegue", sender: nil)
-         //resultLabel.text = "Vous avez perdu ! Temps : \(time) secondes"
+            //resultLabel.text = "Vous avez perdu ! Temps : \(time) secondes"
         case .Win:
             performSegue(withIdentifier: "popUpSegue", sender: nil)
             //resultLabel.text = "Vous avez gagné ! Temps : \(time) secondes"
@@ -135,5 +147,5 @@ class ViewController: UIViewController {
     }
 
 
-}
+
 
