@@ -53,28 +53,28 @@ class ViewController: UIViewController {
     
     @IBAction func didPressButton1() {
         //PressButton1()
-        button1.backgroundColor = UIColor.blue
+        //button1.backgroundColor = UIColor.blue
         button1.isEnabled = false
         //self.
-        ButtonPressed()
+        ButtonPressed(unNom: self.button1)
     }
     @IBAction func didPressButton2() {
         //PressButton2()
-        button2.backgroundColor = UIColor.green
+        //button2.backgroundColor = UIColor.green
         button2.isEnabled = false
-        ButtonPressed()
+        ButtonPressed(unNom: self.button2)
     }
     @IBAction func didPressButton3() {
         //PressButton3()
-        button3.backgroundColor = UIColor.yellow
+        //button3.backgroundColor = UIColor.yellow
         button3.isEnabled = false
-        ButtonPressed()
+        ButtonPressed(unNom: self.button3)
     }
     @IBAction func didPressButton4() {
         //PressButton4()
-        button4.backgroundColor = UIColor.red
+        //button4.backgroundColor = UIColor.red
         button4.isEnabled = false
-        ButtonPressed()
+        ButtonPressed(unNom: self.button4)
     }
     
     /*private func PressButton1() {
@@ -90,7 +90,13 @@ class ViewController: UIViewController {
         
     }*/
     
-    private func ButtonPressed() {
+    private func ButtonPressed(unNom: UIButton) {
+        jeu.getIsBonus()
+        if jeu.isBonus == true {
+            unNom.backgroundColor = UIColor.green
+        } else {
+            unNom.backgroundColor = UIColor.red
+        }
         jeu.goToNextCase()
         scoreLabel.text = "Score : \(jeu.score)"
         nbtouchesLabel.text = "Cases touchées : \(jeu.nbCasesTouchees)"

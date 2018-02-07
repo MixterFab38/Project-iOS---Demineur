@@ -70,11 +70,11 @@ class Jeu {
     
     func goToNextCase() { //Nom classe a changer
         if nbCoup < 1 {
-            getIsBonus()
+            //getIsBonus()
             updateScore(with: isBonus)
             finishGame()
         } else {
-            getIsBonus()
+            //getIsBonus()
             updateScore(with: isBonus)
         }
     }
@@ -83,7 +83,7 @@ class Jeu {
         let random = arc4random_uniform(2)
         
         if random == 0 {
-            isBonus = true
+            isBonus = true //si = 0 , bonus
         } else {
             isBonus = false
         }
