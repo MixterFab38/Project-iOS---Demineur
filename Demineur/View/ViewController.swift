@@ -109,13 +109,13 @@ class ViewController: UIViewController {
         button3.isEnabled = true
         button4.isEnabled = true
         
+        jeu.refresh()
+        
         scoreLabel.text = "Score : 0"
         nbtouchesLabel.text = "Cases touchées : 0"
-        nbRest.text = "Coups restants : "
+        nbRest.text = "Coups restants : \(jeu.nbCoup)"
         timerLabel.text = "Temps : 0"+"\""
         resultLabel.text = ""
-        
-        jeu.refresh()
         
         startTimer()
     }

@@ -52,11 +52,11 @@ class Jeu {
         score+=1
         nbCoup-=1
         nbCasesTouchees+=1
-        /*if isBonus==true {
+        if isBonus==true {
             score+=1
         } else {
             score-=2 //Malus
-        }*/
+        }
     }
     
     //Utile pour plus tard :
@@ -68,16 +68,26 @@ class Jeu {
         goToNextQuestion()
     }*/
     
-    func goToNextCase(/*with isBonus:Bool*/) { //Nom classe a changer
+    func goToNextCase() { //Nom classe a changer
         if nbCoup < 1 {
+            getIsBonus()
             updateScore(with: isBonus)
             finishGame()
         } else {
+            getIsBonus()
             updateScore(with: isBonus)
         }
     }
     
     func getIsBonus()->Bool {
+        let random = arc4random_uniform(2)
+        
+        if random == 0 {
+            isBonus = true
+        } else {
+            isBonus = false
+        }
+        
         return isBonus;
     }
     
