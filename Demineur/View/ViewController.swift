@@ -96,11 +96,16 @@ class ViewController: UIViewController {
             unNom.backgroundColor = UIColor.green
         } else {
             unNom.backgroundColor = UIColor.red
+            endGame()
         }
         jeu.goToNextCase()
         scoreLabel.text = "Score : \(jeu.score)"
         nbtouchesLabel.text = "Cases touchées : \(jeu.nbCasesTouchees)"
         nbRest.text = "Coups restants : \(jeu.nbCoup)"
+        
+        if jeu.nbCoup < 1 {
+            endGame()
+        }
     }
     
     
@@ -137,15 +142,29 @@ class ViewController: UIViewController {
         timerLabel.text = "Temps : \(time)\""
     }
     
-    /*func endGame(){
+    func endGame(){
         chrono.invalidate()
-        switch Jeu.State.self {
+        
+        button1.isEnabled = false
+        button2.isEnabled = false
+        button3.isEnabled = false
+        button4.isEnabled = false
+        
+        /*resultLabel.text = "Partie terminée en \(time) secondes. Score : \(jeu.score) pts."*/
+        
+        
+        
+        /*switch Jeu.State.self {
             case .ongoing:
                 <#code#>
             default:
-                <#code#>
-            }*/
+                <#code#>*/
         
+        
+            }
+    
+    
+    
         
         /*switch gameView.playTable!.result {
         case .Loose:

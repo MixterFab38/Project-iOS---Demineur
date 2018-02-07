@@ -16,7 +16,7 @@ class Jeu {
     
     init()
      {
-     self.nbCoup = 2;
+     self.nbCoup = 3;
      self.score = 0;
      self.nbCases = 4;
      }
@@ -42,20 +42,20 @@ class Jeu {
     
     func refresh() {
         score = 0
-        nbCoup = 2
+        nbCoup = 3
         nbCases = 4
         nbCasesTouchees = 0
         state = .over
     }
     
     func updateScore(with isBonus:Bool) {
-        score+=1
+        //score+=1
         nbCoup-=1
         nbCasesTouchees+=1
         if isBonus==true {
-            score+=1
+            score+=2
         } else {
-            score-=2 //Malus
+            score-=1 //Malus
         }
     }
     
