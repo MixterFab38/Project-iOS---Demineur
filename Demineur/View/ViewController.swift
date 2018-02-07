@@ -54,22 +54,26 @@ class ViewController: UIViewController {
     @IBAction func didPressButton1() {
         //PressButton1()
         button1.backgroundColor = UIColor.blue
+        button1.isEnabled = false
         //self.
         ButtonPressed()
     }
     @IBAction func didPressButton2() {
         //PressButton2()
         button2.backgroundColor = UIColor.green
+        button2.isEnabled = false
         ButtonPressed()
     }
     @IBAction func didPressButton3() {
         //PressButton3()
         button3.backgroundColor = UIColor.yellow
+        button3.isEnabled = false
         ButtonPressed()
     }
     @IBAction func didPressButton4() {
         //PressButton4()
         button4.backgroundColor = UIColor.red
+        button4.isEnabled = false
         ButtonPressed()
     }
     
@@ -99,6 +103,11 @@ class ViewController: UIViewController {
         button2.backgroundColor = UIColor.gray
         button3.backgroundColor = UIColor.gray
         button4.backgroundColor = UIColor.gray
+        
+        button1.isEnabled = true
+        button2.isEnabled = true
+        button3.isEnabled = true
+        button4.isEnabled = true
         
         scoreLabel.text = "Score : 0"
         nbtouchesLabel.text = "Cases touchées : 0"
