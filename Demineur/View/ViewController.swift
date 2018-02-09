@@ -25,10 +25,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var newGameButton: UIButton!
     
-    @IBOutlet weak var button1: UIButton!
+    /*@IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
-    @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var button4: UIButton!*/
     
     @IBOutlet var buttons: [UIButton]!
     
@@ -50,8 +50,11 @@ class ViewController: UIViewController {
         startNewGame() // A chaque pression sur le bouton "Nouvelle partie"
     }
     
-    
-    @IBAction func didPressButton1() {
+    @IBAction func didPressButton(_ sender: UIButton) {
+        sender.isEnabled = false
+        ButtonPressed(unNom: sender)
+    }
+    /* @IBAction func didPressButton1() {
         //PressButton1()
         //button1.backgroundColor = UIColor.blue
         button1.isEnabled = false
@@ -77,7 +80,7 @@ class ViewController: UIViewController {
         ButtonPressed(unNom: self.button4)
     }
     
-    /*private func PressButton1() {
+    private func PressButton1() {
         
     }
     private func PressButton2() {
@@ -96,6 +99,12 @@ class ViewController: UIViewController {
             unNom.backgroundColor = UIColor.green
         } else {
             unNom.backgroundColor = UIColor.red
+
+            /*for UIButton in buttons
+            {
+                didPressButton(UIButton)
+            }*/
+            
             endGame()
         }
         jeu.goToNextCase()
@@ -110,7 +119,7 @@ class ViewController: UIViewController {
     
     
     private func startNewGame() {
-        button1.backgroundColor = UIColor.gray
+        /*button1.backgroundColor = UIColor.gray
         button2.backgroundColor = UIColor.gray
         button3.backgroundColor = UIColor.gray
         button4.backgroundColor = UIColor.gray
@@ -118,7 +127,13 @@ class ViewController: UIViewController {
         button1.isEnabled = true
         button2.isEnabled = true
         button3.isEnabled = true
-        button4.isEnabled = true
+        button4.isEnabled = true*/
+        
+        for i in 0...3
+        {
+            buttons[i].backgroundColor = UIColor.gray
+            buttons[i].isEnabled = true
+        }
         
         jeu.refresh()
         
@@ -145,10 +160,18 @@ class ViewController: UIViewController {
     func endGame(){
         chrono.invalidate()
         
-        button1.isEnabled = false
+        /*button1.isEnabled = false
         button2.isEnabled = false
         button3.isEnabled = false
-        button4.isEnabled = false
+        button4.isEnabled = false*/
+        
+        for i in 0...3
+        {
+             buttons[i].isEnabled = false
+        }
+        
+        
+        resultLabel.text = "Partie terminée !"
         
         /*resultLabel.text = "Partie terminée en \(time) secondes. Score : \(jeu.score) pts."*/
         

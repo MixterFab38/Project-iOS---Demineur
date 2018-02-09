@@ -142,7 +142,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="didPressButton1" destination="GEf-Pb-gUk" eventType="touchUpInside" id="dNg-Wz-OW0"/>
+                                    <action selector="didPressButton:" destination="GEf-Pb-gUk" eventType="touchUpInside" id="PaV-aC-KgV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4A-LS-nMh" userLabel="Button2">
@@ -150,7 +150,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="didPressButton2" destination="GEf-Pb-gUk" eventType="touchUpInside" id="gHF-os-aD7"/>
+                                    <action selector="didPressButton:" destination="GEf-Pb-gUk" eventType="touchUpInside" id="1gA-Ng-nHy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oV1-vw-dRp" userLabel="Button3">
@@ -158,7 +158,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="didPressButton3" destination="GEf-Pb-gUk" eventType="touchUpInside" id="WbA-1E-etM"/>
+                                    <action selector="didPressButton:" destination="GEf-Pb-gUk" eventType="touchUpInside" id="sWo-8Q-fHL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Poq-o6-AuO" userLabel="Button4">
@@ -166,7 +166,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="didPressButton4" destination="GEf-Pb-gUk" eventType="touchUpInside" id="JTJ-Vx-5F8"/>
+                                    <action selector="didPressButton:" destination="GEf-Pb-gUk" eventType="touchUpInside" id="TZe-hq-huA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score : 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igW-RM-ecD">
@@ -225,10 +225,6 @@
                         <viewLayoutGuide key="safeArea" id="RKy-Fw-5pQ"/>
                     </view>
                     <connections>
-                        <outlet property="button1" destination="UfZ-7Y-rQn" id="lU3-cM-kvi"/>
-                        <outlet property="button2" destination="T4A-LS-nMh" id="cPh-J5-mfF"/>
-                        <outlet property="button3" destination="oV1-vw-dRp" id="Hak-xq-5Bb"/>
-                        <outlet property="button4" destination="Poq-o6-AuO" id="lXu-jk-04o"/>
                         <outlet property="nbRest" destination="iDy-f8-TEO" id="bCj-oK-1gz"/>
                         <outlet property="nbtouchesLabel" destination="Pom-yg-G5m" id="G2I-cS-JlB"/>
                         <outlet property="newGameButton" destination="9fZ-UH-KcF" id="K6X-iP-M3E"/>
