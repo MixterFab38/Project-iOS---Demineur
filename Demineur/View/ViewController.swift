@@ -99,6 +99,7 @@ class ViewController: UIViewController {
             unNom.backgroundColor = UIColor.green
         } else {
             unNom.backgroundColor = UIColor.red
+            //simulClick()
 
             /*for UIButton in buttons
             {
@@ -117,6 +118,17 @@ class ViewController: UIViewController {
         }
     }
     
+    /*private func simulClick()
+    {
+        for bouton in buttons
+        {
+            if jeu.getIsBonus() == true {
+                bouton.backgroundColor = UIColor.green
+            } else {
+                bouton.backgroundColor = UIColor.red
+            }
+        }
+    }*/
     
     private func startNewGame() {
         /*button1.backgroundColor = UIColor.gray
@@ -129,10 +141,10 @@ class ViewController: UIViewController {
         button3.isEnabled = true
         button4.isEnabled = true*/
         
-        for i in 0...3
+        for bouton in buttons
         {
-            buttons[i].backgroundColor = UIColor.gray
-            buttons[i].isEnabled = true
+            bouton.backgroundColor = UIColor.gray
+            bouton.isEnabled = true
         }
         
         jeu.refresh()
@@ -165,9 +177,9 @@ class ViewController: UIViewController {
         button3.isEnabled = false
         button4.isEnabled = false*/
         
-        for i in 0...3
+        for bouton in buttons
         {
-             buttons[i].isEnabled = false
+             bouton.isEnabled = false
         }
         
         
@@ -184,7 +196,7 @@ class ViewController: UIViewController {
                 <#code#>*/
         
         
-            }
+    }
     
     
     
