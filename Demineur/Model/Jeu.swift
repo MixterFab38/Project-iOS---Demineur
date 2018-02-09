@@ -79,18 +79,6 @@ class Jeu {
         }
     }
     
-    func getIsBonus()->Bool {
-        let random = arc4random_uniform(2)
-        
-        if random == 0 {
-            isBonus = true //si = 0 , bonus
-        } else {
-            isBonus = false
-        }
-        
-        return isBonus;
-    }
-    
     private func finishGame() {
         
         //state = .over

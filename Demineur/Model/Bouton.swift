@@ -8,13 +8,12 @@
 
 import Foundation
 
-class Case {
+class Bouton {
     
-    struct Case {
-        var isBonus: Bool = false
-    }
+    var isBonus: Bool = false
+
     
-    /*var type: Bool
+    var type: Bool
     var numero: Int = 0
     
     init( numero: Int, type: Bool)
@@ -30,7 +29,7 @@ class Case {
     {
         return type;
     }
-    func AttribueType(unType: Bool)
+    /*func AttribueType(unType: Bool)
    {
     self.type = unType
    }*/

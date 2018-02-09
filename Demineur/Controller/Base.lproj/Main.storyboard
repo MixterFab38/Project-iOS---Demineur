@@ -284,6 +284,13 @@
                                     <action selector="didPressButton:" destination="GEf-Pb-gUk" eventType="touchUpInside" id="wQd-S2-S3y"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMD-SW-VKr" customClass="Case">
+                                <rect key="frame" x="292" y="428" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="rY6-Pp-g4u"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.84847005208333337" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="RKy-Fw-5pQ"/>
@@ -294,6 +301,7 @@
                         <outlet property="newGameButton" destination="9fZ-UH-KcF" id="K6X-iP-M3E"/>
                         <outlet property="resultLabel" destination="foa-SB-s0C" id="E50-SR-OZi"/>
                         <outlet property="scoreLabel" destination="igW-RM-ecD" id="Ha8-Xt-02F"/>
+                        <outlet property="test" destination="FMD-SW-VKr" id="ocb-8i-24L"/>
                         <outlet property="timerLabel" destination="LMk-ej-6lT" id="PGu-3j-8tH"/>
                         <outletCollection property="buttons" destination="UfZ-7Y-rQn" collectionClass="NSMutableArray" id="WH7-tk-ObP"/>
                         <outletCollection property="buttons" destination="T4A-LS-nMh" collectionClass="NSMutableArray" id="bo9-TO-f5o"/>

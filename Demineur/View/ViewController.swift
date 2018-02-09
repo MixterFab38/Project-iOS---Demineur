@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var jeu = Jeu()
+    var temp = true
     //var jeu = Jeu(nbCoup: 2 ,  nbCase: 4)
     
     private var chrono = Timer()
@@ -31,6 +32,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var button4: UIButton!*/
     
     @IBOutlet var buttons: [UIButton]!
+    @IBOutlet weak var test: Case!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,12 +96,11 @@ class ViewController: UIViewController {
     }*/
     
     private func ButtonPressed(unNom: UIButton) {
-        jeu.getIsBonus()
-        if jeu.isBonus == true {
+        if temp == true {
             unNom.backgroundColor = UIColor.green
         } else {
             unNom.backgroundColor = UIColor.red
-            //simulClick()
+            simulClick()
 
             /*for UIButton in buttons
             {
@@ -118,17 +119,17 @@ class ViewController: UIViewController {
         }
     }
     
-    /*private func simulClick()
+    private func simulClick()
     {
         for bouton in buttons
         {
-            if jeu.getIsBonus() == true {
+            if temp == true {
                 bouton.backgroundColor = UIColor.green
             } else {
                 bouton.backgroundColor = UIColor.red
             }
         }
-    }*/
+    }
     
     private func startNewGame() {
         /*button1.backgroundColor = UIColor.gray
@@ -145,6 +146,11 @@ class ViewController: UIViewController {
         {
             bouton.backgroundColor = UIColor.gray
             bouton.isEnabled = true
+            if jeu.getIsBonus() == true {
+                temp = true
+            } else {
+                temp = false
+            }
         }
         
         jeu.refresh()
