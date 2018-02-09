@@ -13,7 +13,7 @@
 		E58B9BD0202052C800821EDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E58B9BCF202052C800821EDA /* Assets.xcassets */; };
 		E58B9BD3202052C800821EDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58B9BD1202052C800821EDA /* LaunchScreen.storyboard */; };
 		E58B9BF72020555C00821EDA /* demineur.png in Resources */ = {isa = PBXBuildFile; fileRef = E58B9BF62020555C00821EDA /* demineur.png */; };
-		E58B9BFC2020694500821EDA /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58B9BFB2020694500821EDA /* Case.swift */; };
+		E58B9BFC2020694500821EDA /* Bouton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58B9BFB2020694500821EDA /* Bouton.swift */; };
 		E58B9BFE2020766900821EDA /* Jeu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58B9BFD2020766900821EDA /* Jeu.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +45,7 @@
 		E58B9BD9202052C800821EDA /* DemineurTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemineurTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58B9BE4202052C800821EDA /* DemineurUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemineurUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58B9BF62020555C00821EDA /* demineur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demineur.png; sourceTree = SOURCE_ROOT; };
-		E58B9BFB2020694500821EDA /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
+		E58B9BFB2020694500821EDA /* Bouton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bouton.swift; sourceTree = "<group>"; };
 		E58B9BFD2020766900821EDA /* Jeu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jeu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,7 +110,7 @@
 		E58B9BF8202068B600821EDA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E58B9BFB2020694500821EDA /* Case.swift */,
+				E58B9BFB2020694500821EDA /* Bouton.swift */,
 				E58B9BFD2020766900821EDA /* Jeu.swift */,
 			);
 			path = Model;
@@ -269,7 +269,7 @@
 			files = (
 				E58B9BFE2020766900821EDA /* Jeu.swift in Sources */,
 				E58B9BCB202052C800821EDA /* ViewController.swift in Sources */,
-				E58B9BFC2020694500821EDA /* Case.swift in Sources */,
+				E58B9BFC2020694500821EDA /* Bouton.swift in Sources */,
 				E58B9BC9202052C800821EDA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

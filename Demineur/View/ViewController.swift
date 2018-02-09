@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var compteur = 0
     var jeu = Jeu()
-    //var jeu = Jeu(nbCoup: 2 ,  nbCase: 4)
     
     private var chrono = Timer()
     private var time = 0 //secondes
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var button4: UIButton!*/
     
     @IBOutlet var buttons: [UIButton]!
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -94,17 +94,13 @@ class ViewController: UIViewController {
     }*/
     
     private func ButtonPressed(unNom: UIButton) {
-        jeu.getIsBonus()
-        if jeu.isBonus == true {
+        unNom.getIsBonus()
+        if unNom.getIsBonus == true {
             unNom.backgroundColor = UIColor.green
         } else {
-            unNom.backgroundColor = UIColor.red
-
-            /*for UIButton in buttons
-            {
-                didPressButton(UIButton)
-            }*/
-            
+           unNom.backgroundColor = UIColor.red
+           simulClick()
+        
             endGame()
         }
         jeu.goToNextCase()
@@ -114,6 +110,17 @@ class ViewController: UIViewController {
         
         if jeu.nbCoup < 1 {
             endGame()
+        }
+    }
+    private func simulClick()
+    {
+        for bouton in buttons
+        {
+            if bouton.getIsBonus() == true {
+                bouton.backgroundColor = UIColor.green
+            } else {
+                bouton.backgroundColor = UIColor.red
+            }
         }
     }
     
@@ -129,10 +136,10 @@ class ViewController: UIViewController {
         button3.isEnabled = true
         button4.isEnabled = true*/
         
-        for i in 0...3
+        for bouton in buttons
         {
-            buttons[i].backgroundColor = UIColor.gray
-            buttons[i].isEnabled = true
+            bouton.backgroundColor = UIColor.gray
+            bouton.isEnabled = true
         }
         
         jeu.refresh()
@@ -165,9 +172,9 @@ class ViewController: UIViewController {
         button3.isEnabled = false
         button4.isEnabled = false*/
         
-        for i in 0...3
+        for bouton in buttons
         {
-             buttons[i].isEnabled = false
+             bouton.isEnabled = false
         }
         
         

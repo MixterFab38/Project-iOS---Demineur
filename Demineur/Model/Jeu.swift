@@ -16,9 +16,9 @@ class Jeu {
     
     init()
      {
-     self.nbCoup = 3;
+     self.nbCoup = 6;
      self.score = 0;
-     self.nbCases = 4;
+     self.nbCases = 12;
      }
     
     /*struct Case {
@@ -42,8 +42,8 @@ class Jeu {
     
     func refresh() {
         score = 0
-        nbCoup = 3
-        nbCases = 4
+        nbCoup = 6
+        nbCases = 12
         nbCasesTouchees = 0
         state = .over
     }
@@ -79,17 +79,7 @@ class Jeu {
         }
     }
     
-    func getIsBonus()->Bool {
-        let random = arc4random_uniform(2)
-        
-        if random == 0 {
-            isBonus = true //si = 0 , bonus
-        } else {
-            isBonus = false
-        }
-        
-        return isBonus;
-    }
+   
     
     private func finishGame() {
         
