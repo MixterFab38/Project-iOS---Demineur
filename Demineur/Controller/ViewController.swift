@@ -10,12 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var jeu = Jeu()
+    /***    INITIALISATION DES VARIABLES    ***/
+    
+    var jeu = Jeu()     //Instanciation de la classe Jeu
     //var jeu = Jeu(nbCoup: 2 ,  nbCase: 4)
     
-    private var chrono = Timer()
+    private var chrono = Timer() //Initialisation d'un chronomètre
     private var time = 0 //secondes
     
+    /* Connexion des labels */
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var nbtouchesLabel: UILabel!
     @IBOutlet weak var nbRest: UILabel!
@@ -23,6 +26,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var resultLabel: UILabel! // Indiquera si la partie est Gagné ou Perdu
     
+    
+    /* Connexion des boutons */
     @IBOutlet weak var newGameButton: UIButton!
     
     /*@IBOutlet weak var button1: UIButton!
@@ -30,13 +35,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!*/
     
-    @IBOutlet var buttons: [UIButton]!
+    @IBOutlet var buttons: [UIButton]! //Collection des boutons
+    
+    
+    
+    /***    LANCEMENT DE L'APPLICATION   ***/
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        startNewGame() //On lance une partie tout de suite
+        startNewGame() // On lance une partie tout de suite
     }
     
     
@@ -50,9 +59,12 @@ class ViewController: UIViewController {
         startNewGame() // A chaque pression sur le bouton "Nouvelle partie"
     }
     
+    
+    /***    CLASSES     ***/
+    
     @IBAction func didPressButton(_ sender: UIButton) {
-        sender.isEnabled = false
-        ButtonPressed(unNom: sender)
+        sender.isEnabled = false // On désactive le bouton dès l'instant qu'il est pressé par l'utilisateur
+        ButtonPressed(unNom: sender) // Appel de la fonction Button Pressed
     }
     /* @IBAction func didPressButton1() {
         //PressButton1()
@@ -93,12 +105,14 @@ class ViewController: UIViewController {
         
     }*/
     
-    private func ButtonPressed(unNom: UIButton) {
+    private func ButtonPressed(unNom: UIButton) // fonction permettant de gerer les boutons et les labels dès qu'un bouton est pressé
+    {
         jeu.getIsBonus()
-        if jeu.isBonus == true {
-            unNom.backgroundColor = UIColor.green
+        if jeu.isBonus == true // si la case est un bonus
+        {
+            unNom.backgroundColor = UIColor.green // la case deviendra vert
         } else {
-            unNom.backgroundColor = UIColor.red
+            unNom.backgroundColor = UIColor.red // sinon, elle deviendra rouge (malus)
             //simulClick()
 
             /*for UIButton in buttons
@@ -106,15 +120,18 @@ class ViewController: UIViewController {
                 didPressButton(UIButton)
             }*/
             
-            endGame()
+            endGame() // appel de la fonction pour stopper la partie si la case rouge touchée
         }
-        jeu.goToNextCase()
+        
+        jeu.NextCase() // appel de la fonction pour mettre a jour le score et checker s'il reste des coups possibles
+        
+        /* Mise à jour des labels Score, Nbr de cases touchées, et le nbr de coups restants : */
         scoreLabel.text = "Score : \(jeu.score)"
         nbtouchesLabel.text = "Cases touchées : \(jeu.nbCasesTouchees)"
         nbRest.text = "Coups restants : \(jeu.nbCoup)"
         
-        if jeu.nbCoup < 1 {
-            endGame()
+        if jeu.nbCoup < 1 { // si il ne reste plus de coup
+            endGame() // appel de la fonction permettant de stopper le jeu
         }
     }
     
@@ -130,7 +147,8 @@ class ViewController: UIViewController {
         }
     }*/
     
-    private func startNewGame() {
+    private func startNewGame() // lancement d'une nouvelle partie
+    {
         /*button1.backgroundColor = UIColor.gray
         button2.backgroundColor = UIColor.gray
         button3.backgroundColor = UIColor.gray
@@ -141,36 +159,41 @@ class ViewController: UIViewController {
         button3.isEnabled = true
         button4.isEnabled = true*/
         
+        /* RESET DES BOUTONS activables et en gris */
         for bouton in buttons
         {
             bouton.backgroundColor = UIColor.gray
             bouton.isEnabled = true
         }
         
-        jeu.refresh()
+        jeu.reset() //reset des boutons
         
+        /* Remise à zero des labels : */
         scoreLabel.text = "Score : 0"
         nbtouchesLabel.text = "Cases touchées : 0"
         nbRest.text = "Coups restants : \(jeu.nbCoup)"
         timerLabel.text = "Temps : 0"+"\""
         resultLabel.text = ""
         
-        startTimer()
+        startTimer() // lance le chronomètre
     }
     
-    private func startTimer(){
-        chrono.invalidate()
-        time = 0
-        chrono = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateChrono), userInfo: nil, repeats: true)
+    private func startTimer() // fonction gérant le chronomètre
+    {
+        chrono.invalidate() // Arrêt du chronomètre (si besoin) pour le ré-initialisser ensuite
+        time = 0 //remise à 0
+        chrono = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateChrono), userInfo: nil, repeats: true) // Manipulation de l'objet timer qui appelle la fonction updateChrono a chaque 1000ms
     }
     
-    @objc func updateChrono(){
+    @objc func updateChrono() // met à jour le chrono
+    {
         time += 1
-        timerLabel.text = "Temps : \(time)\""
+        timerLabel.text = "Temps : \(time)\"" // mise à jour du label temps
     }
     
-    func endGame(){
-        chrono.invalidate()
+    func endGame()
+    {
+        chrono.invalidate() //arrêt du chronomètre
         
         /*button1.isEnabled = false
         button2.isEnabled = false
@@ -179,12 +202,13 @@ class ViewController: UIViewController {
         
         for bouton in buttons
         {
-             bouton.isEnabled = false
+             bouton.isEnabled = false //désactiver toutes les boutons
         }
         
         
         resultLabel.text = "Partie terminée !"
         
+        //Possibilité aussi de faire comme ci-dessous ; mais ne print pas toujours correctement...
         /*resultLabel.text = "Partie terminée en \(time) secondes. Score : \(jeu.score) pts."*/
         
         

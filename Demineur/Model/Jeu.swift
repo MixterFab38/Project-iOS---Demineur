@@ -9,9 +9,11 @@
 import Foundation
 
 class Jeu {
+    
+    /*** INITIALISATION DES VARIABLES ***/
     var score = 0
     var nbCasesTouchees = 0
-    var nbCoup: Int
+    var nbCoup: Int // Nbr de coups restant
     private var nbCases: Int
     
     init()
@@ -40,7 +42,8 @@ class Jeu {
         self.nbCases = nbCase;
     }*/
     
-    func refresh() {
+    func reset() // reinitialisation des variables (appelé si on presse sur "Nouvelle partie" par exemple
+    {
         score = 0
         nbCoup = 6
         nbCases = 12
@@ -48,14 +51,15 @@ class Jeu {
         state = .over
     }
     
-    func updateScore(with isBonus:Bool) {
+    func updateScore(with isBonus:Bool) // mise à jour du score et des compteurs en fonction de la case touchée (bonus ou malus)
+    {
         //score+=1
         nbCoup-=1
         nbCasesTouchees+=1
         if isBonus==true {
-            score+=2
+            score+=2 // Bonus
         } else {
-            score-=1 //Malus
+            score-=1 // Malus
         }
     }
     
@@ -68,24 +72,26 @@ class Jeu {
         goToNextQuestion()
     }*/
     
-    func goToNextCase() { //Nom classe a changer
+    func NextCase() //appelé après chaque pression sur une case
+    {
         if nbCoup < 1 {
             //getIsBonus()
             updateScore(with: isBonus)
-            finishGame()
+            //finishGame()
         } else {
             //getIsBonus()
             updateScore(with: isBonus)
         }
     }
     
-    func getIsBonus()->Bool {
+    func getIsBonus()->Bool // fonction qui permet de récupérer un entier aléatoire entre 0 et 1 et qui retourne le résultat
+    {
         let random = arc4random_uniform(2)
         
         if random == 0 {
-            isBonus = true //si = 0 , bonus
+            isBonus = true // si = 0 , bonus
         } else {
-            isBonus = false
+            isBonus = false // si = 1 , malus
         }
         
         return isBonus;

@@ -119,7 +119,7 @@
 		E58B9BF9202068C700821EDA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E58B9BCC202052C800821EDA /* Main.storyboard */,
+				E58B9BCA202052C800821EDA /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -127,7 +127,7 @@
 		E58B9BFA202068DF00821EDA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E58B9BCA202052C800821EDA /* ViewController.swift */,
+				E58B9BCC202052C800821EDA /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
