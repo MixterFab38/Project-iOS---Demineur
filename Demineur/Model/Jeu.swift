@@ -23,10 +23,6 @@ class Jeu {
      self.nbCases = 12;
      }
     
-    /*struct Case {
-        var isBonus: Bool = false
-    }*/
-    
     var isBonus: Bool = false
     
     var state: State = .ongoing
@@ -34,13 +30,6 @@ class Jeu {
     enum State {
         case ongoing, over
     }
-    
-    /*init( nbCoup: Int, nbCase: Int)
-    {
-        self.nbCoup = nbCoup;
-        self.score = 0;
-        self.nbCases = nbCase;
-    }*/
     
     func reset() // reinitialisation des variables (appelé si on presse sur "Nouvelle partie" par exemple
     {
@@ -63,25 +52,9 @@ class Jeu {
         }
     }
     
-    //Utile pour plus tard :
-
-    /*func answerCurrentQuestion(with answer: Bool) {
-        if (currentQuestion.isCorrect && answer) || (!currentQuestion.isCorrect && !answer) {
-            score += 1
-        }
-        goToNextQuestion()
-    }*/
-    
     func NextCase() //appelé après chaque pression sur une case
     {
-        if nbCoup < 1 {
-            //getIsBonus()
-            updateScore(with: isBonus)
-            //finishGame()
-        } else {
-            //getIsBonus()
-            updateScore(with: isBonus)
-        }
+        updateScore(with: isBonus)
     }
     
     func getIsBonus()->Bool // fonction qui permet de récupérer un entier aléatoire entre 0 et 1 et qui retourne le résultat
@@ -96,18 +69,5 @@ class Jeu {
         
         return isBonus;
     }
-    
-    private func finishGame() {
-        
-        //state = .over
-    }
-    /*func getTScore() -> Int
-    {
-        return score;
-    }*/
-    /*func getNbCoup() -> Int
-    {
-        return nbCoup;
-    }*/
     
 }
