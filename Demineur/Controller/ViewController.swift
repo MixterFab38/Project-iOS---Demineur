@@ -10,128 +10,142 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    /***    INITIALISATION DES VARIABLES    ***/
+    var jeu = Jeu()
+   
     
-    var jeu = Jeu() // Instanciation de la classe Jeu
+    private var chrono = Timer()
+    private var time = 0 //secondes
     
-    private var chrono = Timer() // Initialisation d'un chronomètre
-    private var time = 0 // secondes
-    
-    /* Connexion des labels */
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var nbtouchesLabel: UILabel!
-    @IBOutlet weak var nbRest: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     
-    @IBOutlet weak var resultLabel: UILabel! // Indiquera si la partie est Gagné ou Perdu
+    @IBOutlet weak var nbMineLabel: UILabel!
+    @IBOutlet weak var resultLabel: UILabel!
     
-    
-    /* Connexion des boutons */
     @IBOutlet weak var newGameButton: UIButton!
-    @IBOutlet var buttons: [UIButton]! //Collection des boutons
+
     
-    
-    
-    /***    LANCEMENT DE L'APPLICATION   ***/
-    
+    @IBOutlet var Cases: [CaseView]!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        startNewGame() // On lance une partie tout de suite
+        startNewGame()
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
     
     @IBAction func didtrapNewGameButton() {
-        startNewGame() // A chaque pression sur le bouton "Nouvelle partie"
+        startNewGame()
     }
     
-    
-    
-    /***    CLASSES     ***/
-    
-    @IBAction func didPressButton(_ sender: UIButton) {
-        sender.isEnabled = false // On désactive le bouton dès l'instant qu'il est pressé par l'utilisateur
-        ButtonPressed(unNom: sender) // Appel de la fonction Button Pressed
+    @IBAction func didPressButton(_ sender: CaseView) {
+        sender.isEnabled = false
+        ButtonPressed(uneCase: sender)
     }
 
+    private func ButtonPressed(uneCase: CaseView) {
     
-    private func ButtonPressed(unNom: UIButton) // fonction permettant de gerer les boutons et les labels dès qu'un bouton est pressé
-    {
-        jeu.getIsBonus()
-        if jeu.isBonus == true // si la case est un bonus
-        {
-            unNom.backgroundColor = UIColor.green // la case deviendra vert
+        if uneCase.isBonus == true {
+            uneCase.setStyle(.bonus)
         } else {
-            unNom.backgroundColor = UIColor.red // sinon, elle deviendra rouge (malus)
-            
-            endGame() // appel de la fonction pour stopper la partie si la case rouge touchée
+            uneCase.setStyle(.malus)
+            simulClick()
+            jeu.gagner = false
+            endGame(with: jeu.gagner)
         }
-        
-        jeu.NextCase() // appel de la fonction pour mettre a jour le score et checker s'il reste des coups possibles
-        
-        /* Mise à jour des labels Score, Nbr de cases touchées, et le nbr de coups restants : */
+
+        jeu.updateScore(with: uneCase)
         scoreLabel.text = "Score : \(jeu.score)"
         nbtouchesLabel.text = "Cases touchées : \(jeu.nbCasesTouchees)"
-        nbRest.text = "Coups restants : \(jeu.nbCoup)"
+        nbMineLabel.text = "nombre de mines : \(jeu.nbMine)"
         
-        if jeu.nbCoup < 1 { // si il ne reste plus de coup
-            endGame() // appel de la fonction permettant de stopper le jeu
+        if (jeu.nbCases - jeu.nbCasesTouchees) == jeu.nbMine{
+            endGame(with: jeu.gagner)
+        }
+    }
+    private func simulClick()
+    {
+        for uneCase in Cases
+        {
+            if uneCase.isBonus == true {
+                uneCase.setStyle(.bonus)
+            } else {
+                uneCase.setStyle(.malus)
+            }
         }
     }
     
-    private func startNewGame() // lancement d'une nouvelle partie
-    {
-        /* RESET DES BOUTONS activables et en gris */
-        for bouton in buttons
+    
+    private func startNewGame() {
+ 
+        jeu.nbMine = 0;
+        for uneCase in Cases
         {
-            bouton.backgroundColor = UIColor.gray
-            bouton.isEnabled = true
-        }
+            uneCase.style = .standard
+            uneCase.isEnabled = true
+            let random = arc4random_uniform(2)
+            if(jeu.nbMine >= 1)
+            {
+                uneCase.isBonus = true
+            }
+            else
+            {
+                if random == 0 {
+                
+                    uneCase.isBonus = true
+                }
+                else
+                {
+                    uneCase.isBonus = false
+                    jeu.nbMine = jeu.nbMine + 1 ;
+                }
+            }
+         }
         
-        jeu.reset() //reset des boutons
+        jeu.refresh()
         
-        /* Remise à zero des labels : */
         scoreLabel.text = "Score : 0"
         nbtouchesLabel.text = "Cases touchées : 0"
-        nbRest.text = "Coups restants : \(jeu.nbCoup)"
+        nbMineLabel.text = "nombre de mines : \(jeu.nbMine)"
         timerLabel.text = "Temps : 0"+"\""
         resultLabel.text = ""
         
-        startTimer() // lance le chronomètre
+        startTimer()
     }
     
-    private func startTimer() // fonction gérant le chronomètre
-    {
-        chrono.invalidate() // Arrêt du chronomètre (si besoin) pour le ré-initialisser ensuite
-        time = 0 //remise à 0
-        
-        // Manipulation de l'objet timer qui appelle la fonction updateChrono a chaque 1000ms :
+    private func startTimer(){
+        chrono.invalidate()
+        time = 0
         chrono = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateChrono), userInfo: nil, repeats: true)
     }
     
-    @objc func updateChrono() // met à jour le chrono
-    {
+    @objc func updateChrono(){
         time += 1
-        timerLabel.text = "Temps : \(time)\"" // mise à jour du label temps
+        timerLabel.text = "Temps : \(time)\""
     }
     
-    func endGame()
-    {
-        chrono.invalidate() //arrêt du chronomètre
+    func endGame(with gagner: Bool){
+        chrono.invalidate()
         
-        for bouton in buttons
+        for uneCase in Cases
         {
-             bouton.isEnabled = false //désactiver toutes les boutons
+            uneCase.isEnabled = false
         }
         
-        resultLabel.text = "Partie terminée !"
-        
-        //Possibilité aussi de faire comme ci-dessous ; mais ne print pas toujours correctement...
-        /*resultLabel.text = "Partie terminée en \(time) secondes. Score : \(jeu.score) pts."*/
+        if(gagner == true)
+        {
+            resultLabel.text = "Partie terminée ! vous avez gagner !"
+        }
+        else{
+            resultLabel.text = "Partie terminée ! vous avez perdu !"
+        }
     }
 }
+
+
+
