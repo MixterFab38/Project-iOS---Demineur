@@ -9,7 +9,6 @@
 import Foundation
 
 class Jeu {
-    var score = 0
     var nbCasesTouchees = 0
     var nbMine: Int
     var nbCases: Int;
@@ -17,7 +16,6 @@ class Jeu {
     
     init()
      {
-     self.score = 0;
      self.nbCases = 12;
      self.nbMine = 0;
      self.nbCases = 12;
@@ -42,20 +40,9 @@ class Jeu {
     }*/
     
     func refresh() {
-        score = 0
         nbCases = 12
         nbCasesTouchees = 0
         state = .over
-    }
-    
-    func updateScore(with uneCase: CaseView) {
-        //score+=1
-        nbCasesTouchees+=1
-        if uneCase.isBonus == true {
-            score+=2
-        } else {
-            score-=1 //Malus
-        }
     }
 }
   
