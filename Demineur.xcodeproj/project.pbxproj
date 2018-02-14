@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1E66C8E920319BB000FB5EED /* CaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E66C8E820319BB000FB5EED /* CaseView.swift */; };
-		1EF6F4472032F3F100C7E7AB /* Jeu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF6F4462032F3F100C7E7AB /* Jeu.swift */; };
-		1EF6F4482032F3F100C7E7AB /* Jeu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF6F4462032F3F100C7E7AB /* Jeu.swift */; };
-		1EF6F4492032F3F100C7E7AB /* Jeu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF6F4462032F3F100C7E7AB /* Jeu.swift */; };
 		E58B9BC9202052C800821EDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58B9BC8202052C800821EDA /* AppDelegate.swift */; };
 		E58B9BCB202052C800821EDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58B9BCA202052C800821EDA /* ViewController.swift */; };
 		E58B9BCE202052C800821EDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58B9BCC202052C800821EDA /* Main.storyboard */; };
@@ -39,7 +36,6 @@
 
 /* Begin PBXFileReference section */
 		1E66C8E820319BB000FB5EED /* CaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaseView.swift; path = Demineur/View/CaseView.swift; sourceTree = SOURCE_ROOT; };
-		1EF6F4462032F3F100C7E7AB /* Jeu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Jeu.swift; sourceTree = "<group>"; };
 		E58B9BC5202052C800821EDA /* Demineur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demineur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58B9BC8202052C800821EDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E58B9BCA202052C800821EDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +77,6 @@
 		E58B9BBC202052C800821EDA = {
 			isa = PBXGroup;
 			children = (
-				1EF6F4462032F3F100C7E7AB /* Jeu.swift */,
 				E58B9BC7202052C800821EDA /* Demineur */,
 				E58B9BC6202052C800821EDA /* Products */,
 			);
@@ -276,7 +271,6 @@
 				E58B9BCB202052C800821EDA /* ViewController.swift in Sources */,
 				1E66C8E920319BB000FB5EED /* CaseView.swift in Sources */,
 				E58B9BC9202052C800821EDA /* AppDelegate.swift in Sources */,
-				1EF6F4472032F3F100C7E7AB /* Jeu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +278,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF6F4482032F3F100C7E7AB /* Jeu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +285,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF6F4492032F3F100C7E7AB /* Jeu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     private var chrono = Timer()
     private var time = 0 //secondes
     
-    @IBOutlet weak var scoreLabel: UILabel!
+
     @IBOutlet weak var nbtouchesLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     
@@ -52,15 +52,13 @@ class ViewController: UIViewController {
     
         if uneCase.isBonus == true {
             uneCase.setStyle(.bonus)
+            jeu.nbCasesTouchees = jeu.nbCasesTouchees + 1;
         } else {
             uneCase.setStyle(.malus)
             simulClick()
             jeu.gagner = false
             endGame(with: jeu.gagner)
         }
-
-        jeu.updateScore(with: uneCase)
-        scoreLabel.text = "Score : \(jeu.score)"
         nbtouchesLabel.text = "Cases touchées : \(jeu.nbCasesTouchees)"
         nbMineLabel.text = "nombre de mines : \(jeu.nbMine)"
         
@@ -82,14 +80,14 @@ class ViewController: UIViewController {
     
     
     private func startNewGame() {
- 
+        jeu.gagner = true;
         jeu.nbMine = 0;
         for uneCase in Cases
         {
             uneCase.style = .standard
             uneCase.isEnabled = true
             let random = arc4random_uniform(2)
-            if(jeu.nbMine >= 1)
+            if(jeu.nbMine >= 8)
             {
                 uneCase.isBonus = true
             }
@@ -109,7 +107,6 @@ class ViewController: UIViewController {
         
         jeu.refresh()
         
-        scoreLabel.text = "Score : 0"
         nbtouchesLabel.text = "Cases touchées : 0"
         nbMineLabel.text = "nombre de mines : \(jeu.nbMine)"
         timerLabel.text = "Temps : 0"+"\""
